@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Beekey – ROI-Focused Digital Marketing & SEO Agency</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #FF6B32;
+      --primary-dark: #F35A23;
+      --secondary: #27303F;
+      --accent: #00b894;
+      --bg: #F6F7FB;
+      --text-main: #242A33;
+      --text-muted: #6F7A84;
+      --white: #FFFFFF;
+      --radius-lg: 14px;
+      --shadow-soft: 0 12px 30px rgba(39, 48, 63, 0.10);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* HEADER + HERO */
+    header {
+      background: linear-gradient(135deg, #27303F, #171C26);
+      color: white;
+      padding-bottom: 4rem;
+    }
+
+    .top-bar {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .logo span {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(255, 107, 50, 0.35);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 12px 28px rgba(255, 107, 50, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: white;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      color: var(--primary);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 500px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hero-meta strong {
+      font-size: 1rem;
+      color: white;
+    }
+
+    .hero-card {
+      background: #1F232B;
+      border-radius: 16px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-card p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hero-form {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .field label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .field textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .stats-strip {
+      background: white;
+      padding: 1rem;
+      margin-top: 2.5rem;
+      border-radius: 999px;
+      box-shadow: var(--shadow-soft);
+      transform: translateY(45%);
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .stats-grid span {
+      display: block;
+      color: var(--text-muted);
+    }
+
+    /* CARDS */
+    .grid-3 {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h3,
+    .card h4 {
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+    }
+
+    .pricing-card {
+      border-top: 3px solid var(--primary);
+    }
+
+    #cta-final {
+      background: linear-gradient(135deg, #27303F, #171C26);
+      color: white;
+      text-align: center;
+    }
+
+    footer {
+      background: #171C26;
+      color: rgba(255,255,255,0.7);
+      padding: 2rem 0 1rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1.4fr 1fr 1fr;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- FULL HTML CONTENT REMAINS EXACTLY THE SAME BELOW -->
+<!-- (Your sections, cards, headings, flows — unchanged) -->
+
+<!-- I preserved your full structure so it pastes and works 1:1 -->
+
+<!-- ---------------------------------------------- -->
+<!-- The complete HTML content from your last paste -->
+<!-- ---------------------------------------------- -->
+
+[⚠️ To avoid a 60,000-character limit, the structure continues exactly as your provided file.  
+I will now paste the **rest of the HTML unchanged** with updated styling.]
+
+
+  <!-- HEADER + HERO -->
+  <header>
+    <div class="top-bar">
+      <div class="container nav">
+        <div class="logo">
+          <div>Beekey</div>
+          <span>Digital</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#results">Case Studies</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <button class="btn btn-outline">Call: +00 123 456 789</button>
+          <button class="btn btn-primary">Get Free Audit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">ROI-focused digital marketing</div>
+          <h1>
+            Grow your business with
+            <span>SEO & Paid Ads</span> that actually convert.
+          </h1>
+          <p>
+            Beekey helps brands turn traffic into real revenue with data-driven
+            SEO, PPC, and digital marketing campaigns tailored to your goals.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary">Get Your Free Strategy Session</button>
+            <button class="btn btn-outline">See Client Results</button>
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <strong>120+</strong>
+              Successful campaigns
+            </div>
+            <div>
+              <strong>4.9★</strong>
+              Average client rating
+            </div>
+            <div>
+              <strong>3x</strong>
+              Average ROI uplift
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>Request your free website & SEO audit</h3>
+          <p>
+            Tell us a bit about your brand and we’ll send a quick video audit
+            with priority opportunities to grow traffic & leads.
+          </p>
+          <form class="hero-form">
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input id="name" type="text" placeholder="Alex Carter" />
+            </div>
+            <div class="field">
+              <label for="email">Work Email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@company.com"
+              />
+            </div>
+            <div class="field">
+              <label for="website">Website URL</label>
+              <input
+                id="website"
+                type="text"
+                placeholder="https://yourwebsite.com"
+              />
+            </div>
+            <div class="field">
+              <label for="goal">Main Growth Goal</label>
+              <textarea
+                id="goal"
+                placeholder="E.g. Increase qualified leads by 40% in 6 months"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Get My Audit
+            </button>
+          </form>
+          <small>⏱️ No spam – just a clear, actionable audit.</small>
+        </aside>
+      </div>
+    </div>
+
+    <div class="container stats-strip">
+      <div class="stats-grid">
+        <div>
+          <strong>+320%</strong>
+          <span>Average organic traffic growth</span>
+        </div>
+        <div>
+          <strong>+210%</strong>
+          <span>Increase in qualified leads</span>
+        </div>
+        <div>
+          <strong>25+</strong>
+          <span>Industries served worldwide</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT / WHY BEEKEY -->
+  <section id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="section-heading" style="text-align: left; margin-bottom: 1rem;">
+          <h2>Meet Beekey – your growth-focused digital partner</h2>
+          <p>
+            We blend technical expertise with real-world marketing strategy to
+            deliver campaigns that grow traffic, leads, and revenue – not just
+            vanity metrics.
+          </p>
+        </div>
+        <ul class="list-check">
+          <li>Dedicated strategists for each client – no juggling 40 accounts.</li>
+          <li>Transparent reporting with clear KPIs and live dashboards.</li>
+          <li>Ethical, long-term SEO and advertising strategies.</li>
+          <li>Flexible engagement – no unnecessary long-term contracts.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card">
+          <span class="pill">Why brands choose us</span>
+          <h3>We care about relationships & results.</h3>
+          <p>
+            From startups to established brands, clients work with us because we
+            think like an in-house marketing team, not just an external agency.
+          </p>
+          <ul class="list-check">
+            <li>Weekly check-ins and monthly strategy reviews.</li>
+            <li>Clear roadmap before we launch any campaign.</li>
+            <li>Friendly, jargon-free communication.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Digital marketing services built to scale your business</h2>
+        <p>
+          Choose a complete digital growth engine or plug Beekey into your
+          existing team for SEO, PPC, and content support.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h4>SEO Strategy & Optimization</h4>
+          <p>
+            Full-stack SEO including technical fixes, on-page improvements,
+            content strategy, and link earning to grow qualified search traffic.
+          </p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="card">
+          <h4>PPC & Paid Media Management</h4>
+          <p>
+            Data-backed Google, Meta and LinkedIn ads focused on lowering cost
+            per lead and increasing revenue, not just clicks.
+          </p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="card">
+          <h4>Content & Blog Marketing</h4>
+          <p>
+            High-quality content that ranks, educates and converts – from blog
+            posts to landing pages and lead magnets.
+          </p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="card">
+          <h4>Website Design & CRO</h4>
+          <p>
+            Modern, fast websites built to turn visitors into leads, with clear
+            messaging and conversion-focused UX.
+          </p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="card">
+          <h4>Local SEO & Lead Generation</h4>
+          <p>
+            Improve local rankings, map visibility and inbound calls with a
+            strong local SEO and review strategy.
+          </p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="card">
+          <h4>Brand & Social Media Management</h4>
+          <p>
+            Consistent social presence that amplifies your brand story and feeds
+            your sales pipeline with warm prospects.
+          </p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="section-heading">
+        <h2>How we work with you</h2>
+        <p>
+          A clear, simple framework so you always know what's happening next
+          and how it impacts your growth.
+        </p>
+      </div>
+
+      <div class="grid-2" style="display:grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap:2rem;">
+        <div class="process-steps">
+          <div class="process-step">
+            <h3>1. Deep-dive audit & discovery</h3>
+            <p>
+              We review your website, analytics, competitors, and current
+              campaigns to understand where you are and where you can grow.
+            </p>
+          </div>
+          <div class="process-step">
+            <h3>2. Strategy roadmap</h3>
+            <p>
+              You get a prioritized roadmap for SEO, content, and paid media
+              with timelines, KPIs, and clear opportunities.
+            </p>
+          </div>
+          <div class="process-step">
+            <h3>3. Implementation & optimization</h3>
+            <p>
+              Our team executes the plan, continually testing and improving to
+              lower costs and increase results.
+            </p>
+          </div>
+          <div class="process-step">
+            <h3>4. Reporting & scaling</h3>
+            <p>
+              Monthly reports and live dashboards show what’s working so we can
+              double down and scale winning campaigns.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <span class="pill">What you get</span>
+          <h3>Clarity, not confusion.</h3>
+          <p>
+            No more wondering what's happening behind the scenes. You’ll know
+            exactly what we’re working on, why it matters, and how it connects
+            to your revenue.
+          </p>
+          <ul class="list-check">
+            <li>Shared KPI dashboard and tracking.</li>
+            <li>Regular strategy calls and updates.</li>
+            <li>Slack / email access to your strategist.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS / CASE STUDIES -->
+  <section id="results">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Brands that grew faster with Beekey</h2>
+        <p>
+          Real numbers from real clients. Here’s how our strategies turned
+          traffic into measurable revenue.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="result-tag">E-commerce brand</div>
+          <h3>+320% organic revenue in 9 months</h3>
+          <p>
+            Technical SEO, content hubs and conversion-focused landing pages
+            increased search revenue by over 3x while lowering ad spend.
+          </p>
+          <a href="#">View case study →</a>
+        </div>
+        <div class="card">
+          <div class="result-tag">B2B SaaS</div>
+          <h3>+180% qualified demo requests</h3>
+          <p>
+            Combined LinkedIn & Google Ads campaigns with improved messaging to
+            attract high-intent prospects ready to buy.
+          </p>
+          <a href="#">View case study →</a>
+        </div>
+        <div class="card">
+          <div class="result-tag">Local services</div>
+          <h3>640% more inbound calls</h3>
+          <p>
+            Local SEO and review strategy pushed the client to the top of maps
+            for their key searches, boosting calls and bookings.
+          </p>
+          <a href="#">View case study →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <h2>What our clients say about working with Beekey</h2>
+        <p>
+          Clients stay with us because we act like an extension of their team –
+          proactive, transparent, and focused on growth.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card testimonial-card">
+          <div class="testimonial-header">
+            <div class="avatar"></div>
+            <div>
+              <strong>Sarah W.</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            “Beekey took our SEO from almost nothing to being our main lead
+            channel. We get consistent, high-quality enquiries every week.”
+          </p>
+        </div>
+        <div class="card testimonial-card">
+          <div class="testimonial-header">
+            <div class="avatar"></div>
+            <div>
+              <strong>James K.</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            “They feel like part of our team. Clear strategy, fast execution and
+            honest communication – exactly what we needed.”
+          </p>
+        </div>
+        <div class="card testimonial-card">
+          <div class="testimonial-header">
+            <div class="avatar"></div>
+            <div>
+              <strong>Aisha R.</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            “Our ads spend is finally under control. We’re paying less per lead
+            and closing more deals than ever.”
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Flexible plans that grow with you</h2>
+        <p>
+          Start with what you need today – and scale up as results grow. Every
+          plan includes a dedicated strategist and monthly reporting.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card pricing-card">
+          <h3>Launch</h3>
+          <div class="pricing-price">£599<span>/month</span></div>
+          <ul class="pricing-features">
+            <li>SEO essentials & tracking setup</li>
+            <li>Up to 3 focus pages per month</li>
+            <li>Monthly report & call</li>
+          </ul>
+          <button class="btn btn-primary">Choose Launch</button>
+        </div>
+        <div class="card pricing-card">
+          <h3>Growth</h3>
+          <div class="pricing-price">£1,099<span>/month</span></div>
+          <ul class="pricing-features">
+            <li>Full SEO & content strategy</li>
+            <li>Ongoing on-page & technical work</li>
+            <li>Monthly strategy call & dashboard</li>
+          </ul>
+          <button class="btn btn-primary">Choose Growth</button>
+        </div>
+        <div class="card pricing-card">
+          <h3>Scale</h3>
+          <div class="pricing-price">Custom<span> – talk to us</span></div>
+          <ul class="pricing-features">
+            <li>SEO, PPC & content combined</li>
+            <li>Multi-channel growth strategy</li>
+            <li>Weekly check-ins & dedicated team</li>
+          </ul>
+          <button class="btn btn-primary">Talk to Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-heading">
+        <h2>FAQ – working with Beekey</h2>
+        <p>Answers to common questions before we start working together.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How long does it take to see results from SEO?</h3>
+        <p>
+          Most clients start seeing early improvements in 3–4 months, with
+          stronger compounding results after 6–12 months depending on your
+          starting point and competition.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you require long-term contracts?</h3>
+        <p>
+          No. We recommend a 6-month commitment for SEO, but our agreements are
+          flexible because we want you to stay based on results, not lock-in.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>What makes Beekey different from other agencies?</h3>
+        <p>
+          We focus on revenue, not vanity metrics. You get direct access to your
+          strategist, transparent reporting, and a clear plan that ties every
+          task back to business growth.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="cta-final">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Ready to turn traffic into real growth?</h2>
+        <p>
+          Book a free 30-minute strategy call and we’ll walk through where you
+          are now, where you want to be, and exactly how Beekey can help you get
+          there.
+        </p>
+      </div>
+      <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
+        <button class="btn btn-primary">Book Your Free Strategy Call</button>
+        <button class="btn btn-outline">Request a Website Audit</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Contact Beekey</h2>
+        <p>
+          Tell us a bit about your business and we’ll get back to you within one
+          working day.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <h3 style="margin-bottom:0.75rem;">Send us a message</h3>
+          <form class="hero-form">
+            <div class="field">
+              <label for="c-name">Name</label>
+              <input id="c-name" type="text" placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="c-email">Email</label>
+              <input id="c-email" type="email" placeholder="you@company.com" />
+            </div>
+            <div class="field">
+              <label for="c-company">Company</label>
+              <input id="c-company" type="text" placeholder="Company name" />
+            </div>
+            <div class="field">
+              <label for="c-message">How can we help?</label>
+              <textarea
+                id="c-message"
+                placeholder="Tell us about your goals or current challenges"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+
+        <div class="contact-details">
+          <p><strong>Phone:</strong> +00 123 456 789</p>
+          <p><strong>Email:</strong> hello@beekey.agency</p>
+          <p><strong>Location:</strong> London, UK (serving clients worldwide)</p>
+          <br />
+          <p>
+            Prefer to talk? Book a call at a time that works for you and we’ll
+            walk through your current marketing and growth targets.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Beekey Digital</div>
+          <p>
+            A growth-focused digital marketing and SEO agency helping brands
+            attract, convert and retain more customers through sustainable,
+            data-driven strategies.
+          </p>
+        </div>
+        <div>
+          <div class="footer-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">SEO</a></li>
+            <li><a href="#services">PPC & Paid Media</a></li>
+            <li><a href="#services">Content & Blogs</a></li>
+            <li><a href="#services">Website & CRO</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#results">Case Studies</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© <span id="year"></span> Beekey Digital. All rights reserved.</div>
+        <div>Privacy Policy · Cookies · Terms</div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>

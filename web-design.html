@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Beekey – High-Converting Web Design for Modern Brands</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #FF6B32;
+      --primary-dark: #F35A23;
+      --secondary: #27303F;
+      --bg-soft: #F6F7FB;
+      --bg-dark: #171C26;
+      --text-main: #242A33;
+      --text-muted: #6F7A84;
+      --white: #FFFFFF;
+      --radius-lg: 16px;
+      --shadow-soft: 0 12px 30px rgba(39, 48, 63, 0.08);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg-soft);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .section-heading p {
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: 0.96rem;
+      color: var(--text-muted);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(255, 107, 50, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(255, 107, 50, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--secondary);
+      border: 1px solid rgba(39, 48, 63, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(39, 48, 63, 0.04);
+    }
+
+    /* Header */
+    header {
+      background: radial-gradient(circle at top left, #FFEEE4 0, #FFFFFF 45%, #F6F7FB 100%);
+      border-bottom: 1px solid rgba(39, 48, 63, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0 0.75rem;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      font-size: 1.1rem;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: var(--primary);
+      box-shadow: 0 6px 14px rgba(255, 107, 50, 0.6);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.75rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3.1vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      max-width: 520px;
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-actions small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--secondary);
+    }
+
+    .hero-media {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      padding: 1.5rem;
+    }
+
+    .hero-media img {
+      border-radius: 14px;
+    }
+
+    .hero-media-caption {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+
+    .hero-badge span {
+      color: #FACC15;
+      font-size: 1rem;
+    }
+
+    /* Trust strip */
+    .trust-strip {
+      margin-top: 1.5rem;
+    }
+
+    .trust-card {
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 0.9rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      transform: translateY(40%);
+    }
+
+    .trust-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.4rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .trust-items span::before {
+      content: "●";
+      color: var(--primary);
+      font-size: 0.5rem;
+      margin-right: 0.4rem;
+      vertical-align: middle;
+    }
+
+    /* Grids & cards */
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 1.6rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: var(--secondary);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255, 107, 50, 0.08);
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .list-check {
+      list-style: none;
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .list-check li::before {
+      content: "✓";
+      color: #22C55E;
+      margin-right: 0.4rem;
+    }
+
+    /* Why section */
+    #why {
+      background: #ffffff;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .why-points {
+      display: grid;
+      gap: 1.2rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .why-points strong {
+      display: block;
+      color: var(--secondary);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Services */
+    .service-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: rgba(255, 107, 50, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Features */
+    #features {
+      background: #ffffff;
+    }
+
+    /* Process */
+    .process-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .process-steps {
+      counter-reset: step;
+    }
+
+    .process-step {
+      position: relative;
+      padding-left: 2.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .process-step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0.2rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(255, 107, 50, 0.5);
+    }
+
+    .process-step h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--secondary);
+    }
+
+    .process-step p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Portfolio */
+    #portfolio {
+      background: var(--bg-soft);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .portfolio-card {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+
+    .portfolio-body {
+      padding: 1rem 1.2rem 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .portfolio-body h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: var(--secondary);
+    }
+
+    .portfolio-body a {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Results / case studies */
+    #results {
+      background: #ffffff;
+    }
+
+    .result-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+    }
+
+    /* Testimonials */
+    #testimonials {
+      background: #ffffff;
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FFB294, #FF6B32);
+    }
+
+    .testimonial-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .stars {
+      font-size: 0.82rem;
+      color: #FACC15;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Pricing */
+    #pricing {
+      background: #ffffff;
+    }
+
+    .pricing-card {
+      border-top: 3px solid var(--primary);
+    }
+
+    .pricing-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0.4rem 0 0.8rem;
+    }
+
+    .pricing-price span {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .pricing-features li {
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-features li::before {
+      content: "•";
+      color: var(--primary);
+      margin-right: 0.4rem;
+    }
+
+    /* FAQ */
+    #faq {
+      background: var(--bg-soft);
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.7rem;
+      box-shadow: 0 6px 16px rgba(39, 48, 63, 0.06);
+    }
+
+    .faq-item h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0.25rem;
+      color: var(--secondary);
+    }
+
+    .faq-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Final CTA */
+    #cta-final {
+      background: linear-gradient(135deg, #27303F, #171C26);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    #cta-final p {
+      color: rgba(241, 245, 249, 0.85);
+    }
+
+    #cta-final .btn-outline {
+      border-color: rgba(255, 255, 255, 0.6);
+      color: #ffffff;
+    }
+
+    /* Contact */
+    #contact {
+      background: #ffffff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .form-card {
+      background: #ffffff;
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+      padding: 1.8rem;
+    }
+
+    .field {
+      margin-bottom: 0.8rem;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.83rem;
+      margin-bottom: 0.25rem;
+      color: var(--secondary);
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(39, 48, 63, 0.2);
+      font-size: 0.88rem;
+      outline: none;
+      background: #F9FAFB;
+    }
+
+    .field textarea {
+      border-radius: 14px;
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--primary);
+      background: #ffffff;
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .contact-details p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-details strong {
+      color: var(--secondary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      color: rgba(226, 232, 240, 0.9);
+      padding: 2.5rem 0 1.6rem;
+      font-size: 0.84rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #ffffff;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .footer-links a {
+      color: rgba(226, 232, 240, 0.85);
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .why-grid,
+      .process-layout,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .trust-card {
+        transform: translateY(0);
+        border-radius: 22px;
+        margin-top: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      section {
+        padding: 3rem 0;
+      }
+
+      .hero {
+        padding-top: 2.2rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <span>Beekey Web Design</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
+        <a href="#results">Results</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <button class="btn btn-outline">Free Website Review</button>
+        <button class="btn btn-primary">Start a Project</button>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-eyebrow">Conversion-focused web design</div>
+          <h1>
+            Websites that look great
+            <span>and turn visitors into customers.</span>
+          </h1>
+          <p>
+            Beekey designs and builds modern, fast, and user-friendly websites
+            that reflect your brand and guide visitors toward the actions that
+            matter: calls, bookings, purchases, and enquiries.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary">Start Your Web Design Project</button>
+            <button class="btn btn-outline">View Web Design Portfolio</button>
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <strong>70+ websites</strong>
+              designed & launched
+            </div>
+            <div>
+              <strong>4.9★ rating</strong>
+              based on client feedback
+            </div>
+            <div>
+              <strong>10–14 days</strong>
+              average launch time
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-media">
+          <!-- Replace with your own illustration / screenshot -->
+          <img src="img/web-hero-illustration.svg" alt="Illustration of a modern responsive website" />
+          <div class="hero-media-caption">
+            <div class="hero-badge">
+              <span>★★★★★</span>
+              <small>Clients love our clean, conversion-focused layouts</small>
+            </div>
+            <small>Example layout designed by Beekey</small>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Trust strip -->
+      <div class="container trust-strip">
+        <div class="trust-card">
+          <div class="trust-items">
+            <span>Responsive on all devices</span>
+            <span>Optimized for speed & SEO</span>
+            <span>Conversion-focused page structure</span>
+            <span>Easy to manage & update</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <!-- WHY YOUR WEBSITE MATTERS -->
+  <section id="why">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <div class="section-heading" style="text-align:left; margin-bottom:1.2rem;">
+            <h2>Your website is often the first impression. Make it count.</h2>
+            <p>
+              An outdated, slow, or confusing website costs you real money.
+              Beekey helps you win more trust, more time on site, and more
+              enquiries with clear design and structure.
+            </p>
+          </div>
+          <div class="why-points">
+            <div>
+              <strong>Bad UX = lost customers</strong>
+              If visitors can’t find what they need in a few seconds, they go
+              to a competitor. We design journeys that feel intuitive, not
+              frustrating.
+            </div>
+            <div>
+              <strong>Slow websites don’t rank or convert</strong>
+              Search engines and users both prefer fast experiences. We build
+              with performance in mind from day one.
+            </div>
+            <div>
+              <strong>Design that actually supports your goals</strong>
+              Every section, block and CTA has a reason to exist: guiding users
+              toward a call, booking, purchase or enquiry.
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <span class="pill">Website audit included</span>
+            <h3>We start with a quick, honest review of your current website.</h3>
+            <p>
+              Send us your URL and we’ll record a short video audit that shows
+              exactly where you’re losing visitors and what needs to change to
+              turn your site into a real sales channel.
+            </p>
+            <ul class="list-check">
+              <li>Navigation & structure review</li>
+              <li>Design & trust factor score</li>
+              <li>Conversion & call-to-action suggestions</li>
+            </ul>
+            <button class="btn btn-primary" style="margin-top:1rem;">
+              Request Free Website Audit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DESIGN / SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Websites designed for your business model.</h2>
+        <p>
+          Whether you’re a service provider, e-commerce brand, consultant or
+          local business, Beekey designs the right type of website for your
+          goals, budget and audience.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="service-icon">🏢</div>
+          <h3>Business & Service Websites</h3>
+          <p>
+            Clean, professional websites for companies that need to explain
+            their services, build trust and generate consistent enquiries.
+          </p>
+        </div>
+        <div class="card">
+          <div class="service-icon">🛒</div>
+          <h3>E-commerce Stores</h3>
+          <p>
+            Product pages, category layouts and checkout flows designed to make
+            buying simple, fast and reassuring for your customers.
+          </p>
+        </div>
+        <div class="card">
+          <div class="service-icon">🎯</div>
+          <h3>Landing Pages</h3>
+          <p>
+            Single-purpose landing pages built for campaigns, ads or specific
+            offers, with one clear call to action and zero distractions.
+          </p>
+        </div>
+        <div class="card">
+          <div class="service-icon">🎨</div>
+          <h3>Personal & Portfolio Sites</h3>
+          <p>
+            Show your work, story and expertise in a way that feels modern,
+            minimal and tailored to your personal brand.
+          </p>
+        </div>
+        <div class="card">
+          <div class="service-icon">📅</div>
+          <h3>Booking & Appointment Sites</h3>
+          <p>
+            Frictionless booking experiences with clear service pages, FAQs and
+            online scheduling integrations.
+          </p>
+        </div>
+        <div class="card">
+          <div class="service-icon">⚙️</div>
+          <h3>Custom Web Experiences</h3>
+          <p>
+            Need something more unique? We can collaborate on tailored layouts
+            for SaaS, platforms and content-heavy projects.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <div class="section-heading">
+        <h2>What makes a Beekey website different?</h2>
+        <p>
+          It’s not just about looking “nice”. We combine structure, copy,
+          design and performance to build sites that people actually enjoy
+          using — and that your team can easily manage.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="pill">Fast & search-friendly</span>
+          <h3>Built for speed and SEO.</h3>
+          <p>
+            Clean layouts, lightweight code and best practices help your pages
+            load quickly and support better rankings.
+          </p>
+          <ul class="list-check">
+            <li>Optimized page structure & headings</li>
+            <li>Core UX & performance in mind</li>
+            <li>Technical foundations for future SEO work</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="pill">Conversion-first</span>
+          <h3>Designed around clear user journeys.</h3>
+          <p>
+            We map how visitors think and move through your site, then design
+            pages that guide them smoothly to the next step.
+          </p>
+          <ul class="list-check">
+            <li>Strategic use of CTAs, buttons & forms</li>
+            <li>Trust elements in the right places</li>
+            <li>Copy that supports your offers</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="pill">Easy to manage</span>
+          <h3>No “black box” websites.</h3>
+          <p>
+            You won’t need to call a developer every time you want to tweak a
+            headline. We set you up for independence.
+          </p>
+          <ul class="list-check">
+            <li>Simple editing with your chosen platform</li>
+            <li>Reusable sections and components</li>
+            <li>Short walkthrough or handover call</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="section-heading">
+        <h2>A clear process from first idea to launch.</h2>
+        <p>
+          No disappearing designers, no endless revisions. Just a friendly,
+          transparent process with clear steps and timelines.
+        </p>
+      </div>
+
+      <div class="process-layout">
+        <div class="process-steps">
+          <div class="process-step">
+            <h3>Discovery & planning</h3>
+            <p>
+              We talk about your goals, audience, existing website (if you have
+              one) and what “success” looks like for this project.
+            </p>
+          </div>
+          <div class="process-step">
+            <h3>Wireframes & content</h3>
+            <p>
+              We outline the structure of each page and gather content or
+              support you with copy suggestions and guidance.
+            </p>
+          </div>
+          <div class="process-step">
+            <h3>Visual design & build</h3>
+            <p>
+              You get modern, on-brand mockups. Once approved, we develop the
+              responsive site and set up all core pages.
+            </p>
+          </div>
+          <div class="process-step">
+            <h3>Launch, test & refine</h3>
+            <p>
+              We go live together, test forms and flows, and make final tweaks
+              based on early user feedback and analytics.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="pill">Always in the loop</span>
+          <h3>Stay updated without chasing us.</h3>
+          <p>
+            You’ll know exactly what we’re working on and when to expect each
+            milestone. We keep project management simple:
+          </p>
+          <ul class="list-check">
+            <li>Clear timeline before we start</li>
+            <li>Regular check-ins via email or calls</li>
+            <li>Shared links to preview work in progress</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Recent websites designed by Beekey.</h2>
+        <p>
+          Here are a few examples of the clean, conversion-focused layouts we
+          build. Replace these placeholders with your real projects.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <img src="img/portfolio-saas.jpg" alt="SaaS website example" />
+          <div class="portfolio-body">
+            <h3>SaaS landing page</h3>
+            <p>
+              Crisp hero section, clear feature blocks and strong CTAs built to
+              drive demo requests.
+            </p>
+            <a href="#">View project →</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="img/portfolio-service.jpg" alt="Service business website example" />
+          <div class="portfolio-body">
+            <h3>Service business website</h3>
+            <p>
+              Simple navigation, strong trust elements and clear booking paths
+              for a local service provider.
+            </p>
+            <a href="#">View project →</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="img/portfolio-ecommerce.jpg" alt="E-commerce website example" />
+          <div class="portfolio-body">
+            <h3>E-commerce homepage</h3>
+            <p>
+              Focused product storytelling, social proof and streamlined paths
+              to checkout.
+            </p>
+            <a href="#">View project →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS / CASE STUDIES -->
+  <section id="results">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Web design that leads to real results.</h2>
+        <p>
+          Design is not just about aesthetics. Here’s what happened when we
+          combined structure, UX and clear messaging for our clients.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="result-tag">Consulting firm</div>
+          <h3>+82% more enquiries after redesign.</h3>
+          <p>
+            We simplified the services pages, added clear CTAs and made contact
+            options visible at every step. The result: more qualified leads
+            from the same traffic.
+          </p>
+        </div>
+        <div class="card">
+          <div class="result-tag">E-commerce brand</div>
+          <h3>3× higher product page conversion rate.</h3>
+          <p>
+            By restructuring the product page and adding trust cues, conversion
+            rates increased while support tickets went down.
+          </p>
+        </div>
+        <div class="card">
+          <div class="result-tag">SaaS startup</div>
+          <h3>+147% time on site, lower bounce rate.</h3>
+          <p>
+            A new homepage story, clearer navigation and better feature layout
+            helped visitors explore deeper and book more demos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <h2>What clients say about our web design work.</h2>
+        <p>
+          We’re easy to work with, quick to respond, and focused on building
+          long-term partnerships — not just one-off projects.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card testimonial-card">
+          <div class="testimonial-header">
+            <div class="avatar"></div>
+            <div>
+              <div class="testimonial-name">Alex, Marketing Lead</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            “The new website feels like us. It’s cleaner, faster, and we’re
+            getting far more enquiries without increasing ad spend.”
+          </p>
+        </div>
+        <div class="card testimonial-card">
+          <div class="testimonial-header">
+            <div class="avatar"></div>
+            <div>
+              <div class="testimonial-name">Nina, Founder</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            “Beekey guided us through every step. They translated our messy
+            ideas into a clear, professional site that actually converts.”
+          </p>
+        </div>
+        <div class="card testimonial-card">
+          <div class="testimonial-header">
+            <div class="avatar"></div>
+            <div>
+              <div class="testimonial-name">Sam, E-commerce Owner</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            “We saw an immediate lift in sales after launch. Customers tell us
+            it’s much easier to browse and buy now.”
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Simple, transparent web design packages.</h2>
+        <p>
+          Start with the package that fits your current stage. All options can
+          be tailored and expanded if you need extra pages or features.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card pricing-card">
+          <span class="pill">For small projects</span>
+          <h3>Starter Website</h3>
+          <div class="pricing-price">£499 <span>one-time</span></div>
+          <ul class="pricing-features">
+            <li>Up to 3 core pages (e.g. Home, About, Contact)</li>
+            <li>Mobile-responsive design</li>
+            <li>Basic on-page SEO setup</li>
+            <li>Contact form & essential integrations</li>
+          </ul>
+          <button class="btn btn-primary">Choose Starter</button>
+        </div>
+        <div class="card pricing-card">
+          <span class="pill">Most popular</span>
+          <h3>Growth Website</h3>
+          <div class="pricing-price">£899 <span>one-time</span></div>
+          <ul class="pricing-features">
+            <li>Up to 8 pages (services, blog overview, etc.)</li>
+            <li>Conversion-optimized layout & CTAs</li>
+            <li>Support with messaging & structure</li>
+            <li>Launch support & basic training</li>
+          </ul>
+          <button class="btn btn-primary">Choose Growth</button>
+        </div>
+        <div class="card pricing-card">
+          <span class="pill">For serious scaling</span>
+          <h3>Premium Website</h3>
+          <div class="pricing-price">Custom <span>– let’s talk</span></div>
+          <ul class="pricing-features">
+            <li>Larger, multi-page or multi-language sites</li>
+            <li>E-commerce / booking / advanced features</li>
+            <li>Custom UX/UI and unique components</li>
+            <li>Ongoing optimization & support options</li>
+          </ul>
+          <button class="btn btn-primary">Talk to Us</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Web design FAQs</h2>
+        <p>
+          A few common questions we’re happy to answer up front. Ask us
+          anything else during your free consultation.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How long does it take to build a website?</h3>
+        <p>
+          For a typical small business site, most projects take around 10–14
+          days from kickoff to launch, depending on feedback speed and content
+          readiness.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Can you redesign my existing website?</h3>
+        <p>
+          Yes. We can either refresh your current structure or start from
+          scratch if it makes more sense. We’ll give you an honest
+          recommendation after the audit.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you also provide hosting and domain?</h3>
+        <p>
+          We can recommend hosting providers and help you connect everything.
+          You remain the owner of your domain and hosting account.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Can you help with website copy and images?</h3>
+        <p>
+          Absolutely. Many clients ask us to suggest headlines, structure and
+          stock imagery. We can also work with your existing assets.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>What platform will my site be built on?</h3>
+        <p>
+          We choose the best fit based on your needs (for example, a
+          user-friendly CMS). If you already have a preferred platform, we can
+          work with that too.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="cta-final">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Ready for a website you’re proud to share?</h2>
+        <p>
+          Book a free, no-pressure call and we’ll walk through your current
+          website, your goals, and how Beekey can design something that actually
+          supports your growth.
+        </p>
+      </div>
+      <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
+        <button class="btn btn-primary">Book a Free Web Design Call</button>
+        <button class="btn btn-outline">Request a Website Audit</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Tell us about your web design project.</h2>
+        <p>
+          Share a few details and we’ll get back to you within one working day
+          with next steps and a suggested approach.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="form-card">
+          <form>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@company.com" />
+            </div>
+            <div class="field">
+              <label for="website">Current website (optional)</label>
+              <input id="website" type="text" placeholder="https://yourwebsite.com" />
+            </div>
+            <div class="field">
+              <label for="project">What do you need help with?</label>
+              <textarea
+                id="project"
+                placeholder="E.g. redesign our existing site, build a new site for a new product, etc."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p class="form-note">
+              We’ll never share your details. We only use your information to
+              reply to your enquiry.
+            </p>
+          </form>
+        </div>
+
+        <div class="contact-details">
+          <p><strong>Email:</strong> hello@beekey.agency</p>
+          <p><strong>Phone:</strong> +00 123 456 789</p>
+          <p><strong>Location:</strong> Remote – working with clients worldwide</p>
+          <br />
+          <p>
+            Prefer to talk first? Book a call at a time that works for you and
+            we’ll review your project and answer any questions you have.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Beekey Web Design</div>
+          <p>
+            Beekey designs and builds modern, fast and conversion-focused
+            websites for brands that care about user experience and real
+            business results.
+          </p>
+        </div>
+        <div>
+          <div class="footer-title">Explore</div>
+          <ul class="footer-links">
+            <li><a href="#services">Web Design Services</a></li>
+            <li><a href="#portfolio">Our Work</a></li>
+            <li><a href="#results">Client Results</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Support</div>
+          <ul class="footer-links">
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Imprint / Legal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© <span id="year"></span> Beekey Digital. All rights reserved.</div>
+        <div>Web design · UX · Conversion</div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
